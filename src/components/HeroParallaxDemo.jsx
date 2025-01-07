@@ -44,12 +44,12 @@ export const products = [
 
   {
     title: "GitHub",
-    link: "https://github.com/VatsalyaGautam",
+    link: "https://github.com/The-Abhishek-Singh",
     thumbnail: "/images/github4.png",
   },
   {
     title: "LinkedIn",
-    link: "https://linkedin.com/in/vatsalya17",
+    link: "https://www.linkedin.com/in/abhisheksingh2494/",
     thumbnail: "/images/linkedin4.jpg",
   },
   {
@@ -65,7 +65,7 @@ export const products = [
   },
   {
     title: "FlavorFusion",
-    link: "https://vatsalyagautam.github.io/FlavorFusion/",
+    link: "https://nike-shoes-website-lovat.vercel.app/",
     thumbnail: "/images/flavorfusion.png",
   },
 
@@ -81,7 +81,7 @@ export const products = [
   },
   {
     title: "Groove",
-    link: "https://vatsalyagautam.github.io/Groove-Box/",
+    link: "https://two-good-co-ebon.vercel.app/",
     thumbnail: "/images/groove.png",
   },
   {
