@@ -59,6 +59,7 @@ export default function App() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ color: item.name === "Resume" ? "#880bdb" : "" }}
                 >
                   {item.name}
                 </a>
