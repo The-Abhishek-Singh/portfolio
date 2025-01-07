@@ -7,7 +7,7 @@ export const SiteConfig = {
   user: {
     firstName: "Abhishek",
     lastName: "Singh",
-    email: "abhisheks@sspmt.com",
+    email: "abhisheks@ssipmt.com",
     username: "abhisheksingh2494",
     socials: {
       githubUserId: "The-Abhishek-Singh",
@@ -18,7 +18,7 @@ export const SiteConfig = {
   resumeLink:
     "https://drive.google.com/file/d/1-CUotXgxOVthSsx3Uhqhw0T4eDRCCkxj/view?usp=sharing",
 };
-export const GithubYears = [2025, 2024, 2023];
+export const GithubYears = [2025,2024];
 export const Titles = ["Web Developer Intern", "FullStack Developer Intern"];
 export const Subtitles = [
   "@Thought Applied Creations",
