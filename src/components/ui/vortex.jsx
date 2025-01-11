@@ -9,7 +9,7 @@ export const Vortex = (props) => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   // Reduced particle count from 369 to 250 for fewer bubbles
-  const particleCount = props.particleCount || 80;
+  const particleCount = props.particleCount || 60;
   const particlePropCount = 9;
   const particlePropsLength = particleCount * particlePropCount;
   const rangeY = props.rangeY || 85;
