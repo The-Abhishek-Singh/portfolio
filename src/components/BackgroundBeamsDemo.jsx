@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { BackgroundBeams } from "./ui/background-beams";
 import { AnimatedPinDemo } from "./Contact/AnimatedPinDemo";
 import SectionHeading from "./SectionHeading";
 import { Linkedin, Mail, Twitter } from "lucide-react";
@@ -57,7 +56,6 @@ export function BackgroundBeamsDemo() {
             </div>
           </div>
         </div>
-        <BackgroundBeams />
       </div>
     </div>
   );
