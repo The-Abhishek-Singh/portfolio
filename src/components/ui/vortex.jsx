@@ -8,22 +8,25 @@ import RetroGrid from "./retro-grid";
 export const Vortex = (props) => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
-  const particleCount = props.particleCount || 369;
+  // Reduced particle count from 369 to 250 for fewer bubbles
+  const particleCount = props.particleCount || 100;
   const particlePropCount = 9;
   const particlePropsLength = particleCount * particlePropCount;
-  const rangeY = props.rangeY || 85; // Increased from 100 for more vertical spread
-  const baseTTL = 40; // Reduced from 50 for faster particle regeneration
-  const rangeTTL = 120; // Reduced from 150 for more frequent particle updates
-  const baseSpeed = props.baseSpeed || 0.2; // Increased from 0.0 for faster base movement
-  const rangeSpeed = props.rangeSpeed || 1.5; // Increased from 1.5 for more speed variation
+  const rangeY = props.rangeY || 85;
+  const baseTTL = 40;
+  const rangeTTL = 120;
+  const baseSpeed = props.baseSpeed || 0.2;
+  const rangeSpeed = props.rangeSpeed || 1.5;
   const baseRadius = props.baseRadius || 1;
   const rangeRadius = props.rangeRadius || 2;
-  const baseHue = props.baseHue || 270;
-  const rangeHue = 60;
-  const noiseSteps = 4; // Increased from 3 for more dynamic movement
-  const xOff = 0.00175; // Increased from 0.00125 for faster horizontal movement
-  const yOff = 0.00175; // Increased from 0.00125 for faster vertical movement
-  const zOff = 0.00075; // Increased from 0.0005 for faster overall movement
+  // Modified base hue to include both purple and blue particles
+  const baseHue = props.baseHue || 260; // Slightly adjusted base hue
+  // Increased range for wider color variation between blue and purple
+  const rangeHue = 80; // This will allow variation between blue (240) and purple (280)
+  const noiseSteps = 4;
+  const xOff = 0.00175;
+  const yOff = 0.00175;
+  const zOff = 0.00075;
   const backgroundColor = props.backgroundColor || "#13001a";
   let tick = 0;
   const noise3D = createNoise3D();
@@ -41,6 +44,32 @@ export const Vortex = (props) => {
   };
   const lerp = (n1, n2, speed) => (1 - speed) * n1 + speed * n2;
 
+  // Modified initParticle to create a mix of blue and purple particles
+  const initParticle = (i) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    let x, y, vx, vy, life, ttl, speed, radius, hue;
+
+    x = rand(canvas.width * 1.2) - canvas.width * 0.1;
+    y = center[1] + randRange(rangeY * 1.5);
+    vx = 0;
+    vy = 0;
+    life = 0;
+    ttl = baseTTL + rand(rangeTTL);
+    speed = baseSpeed + rand(rangeSpeed);
+    radius = baseRadius + rand(rangeRadius);
+
+    // Randomly assign either blue or purple hue
+    hue =
+      Math.random() > 0.5
+        ? 240 + rand(20) // Blue range (240-260)
+        : 230 + rand(20); // Purple range (270-290)
+
+    particleProps.set([x, y, vx, vy, life, ttl, speed, radius, hue], i);
+  };
+
+  // Rest of the component remains unchanged
   const setup = () => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
@@ -62,26 +91,6 @@ export const Vortex = (props) => {
     for (let i = 0; i < particlePropsLength; i += particlePropCount) {
       initParticle(i);
     }
-  };
-
-  const initParticle = (i) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    let x, y, vx, vy, life, ttl, speed, radius, hue;
-
-    // Modified to spread particles more widely
-    x = rand(canvas.width * 1.2) - canvas.width * 0.1; // Spread beyond edges
-    y = center[1] + randRange(rangeY * 1.5); // Increased vertical spread
-    vx = 0;
-    vy = 0;
-    life = 0;
-    ttl = baseTTL + rand(rangeTTL);
-    speed = baseSpeed + rand(rangeSpeed);
-    radius = baseRadius + rand(rangeRadius);
-    hue = baseHue + rand(rangeHue);
-
-    particleProps.set([x, y, vx, vy, life, ttl, speed, radius, hue], i);
   };
 
   const draw = (canvas, ctx) => {
@@ -122,8 +131,8 @@ export const Vortex = (props) => {
     x = particleProps[i];
     y = particleProps[i2];
     n = noise3D(x * xOff, y * yOff, tick * zOff) * noiseSteps * TAU;
-    vx = lerp(particleProps[i3], Math.cos(n), 0.6); // Increased lerp speed from 0.5
-    vy = lerp(particleProps[i4], Math.sin(n), 0.6); // Increased lerp speed from 0.5
+    vx = lerp(particleProps[i3], Math.cos(n), 0.6);
+    vy = lerp(particleProps[i4], Math.sin(n), 0.6);
     life = particleProps[i5];
     ttl = particleProps[i6];
     speed = particleProps[i7];
@@ -159,7 +168,6 @@ export const Vortex = (props) => {
   };
 
   const checkBounds = (x, y, canvas) => {
-    // Increased bounds check area to match wider spread
     return (
       x > canvas.width * 1.1 ||
       x < -canvas.width * 0.1 ||
@@ -214,22 +222,23 @@ export const Vortex = (props) => {
 
   return (
     <>
-     
-    <div className={cn(" relative h-full w-full", props.containerClassName)}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        ref={containerRef}
-        className="absolute h-full w-full inset-0 z-0 bg-transparent flex items-center justify-center "
-      >
-        <canvas className="absolute w-screen h-[47rem] top-[-15rem]" ref={canvasRef}></canvas>
-      </motion.div>
-      <div className={cn("relative z-10 ", props.className)}>
-        {props.children}
-        <RetroGrid/>
+      <div className={cn(" relative h-full w-full", props.containerClassName)}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          ref={containerRef}
+          className="absolute h-full w-full inset-0 z-0 bg-transparent flex items-center justify-center "
+        >
+          <canvas
+            className="absolute w-screen h-[47rem] top-[-15rem]"
+            ref={canvasRef}
+          ></canvas>
+        </motion.div>
+        <div className={cn("relative z-10 ", props.className)}>
+          {props.children}
+          <RetroGrid />
+        </div>
       </div>
-    </div>
-    
     </>
   );
 };
