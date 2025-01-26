@@ -39,6 +39,6 @@ const items = [
     description: "Follow me on Twitter, now X",
     header: <img src="/images/AbhishekX.png" alt="Twitter" />,
     icon: <Twitter className="h-4 w-4 text-neutral-500" />,
-    href: "https://x.com/79off47",
+    href: "https://x.com/i_amAbhishek_07",
   },
 ];
