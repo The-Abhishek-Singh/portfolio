@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://abhishekworks.com
+
+# Sitemaps
+Sitemap: https://abhishekworks.com/sitemap.xml
