@@ -53,15 +53,15 @@ const ubuntu = Ubuntu({
 });
 export const metadata = {
   title: {
-    default: "Abhishek Singh",
+    default: "Abhishek Singh | Full Stack Developer & MERN Expert",
     template: `%s | Abhishek Singh`,
   },
-  description: "Welcome to Abhishek's Portfolio",
+  description: "Abhishek Singh is a passionate Full Stack Developer specializing in React, Next.js, Django, and AWS. Explore his projects and expertise at Abhishekworks.com.",
   verification: {
   },
   openGraph: {
-    title: "Abhishek Singh",
-    description: "Welcome to Abhishek's Portfolio",
+    title: "Abhishek Singh | Full Stack Developer & MERN Expert",
+    description: "Abhishek Singh is a passionate Full Stack Developer specializing in React, Next.js, Django, and AWS. Explore his projects and expertise at Abhishekworks.com.",
     type: "website",
   },
 };
