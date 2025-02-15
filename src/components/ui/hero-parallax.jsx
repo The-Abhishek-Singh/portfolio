@@ -45,6 +45,13 @@ export const HeroParallax = ({ products }) => {
       ref={ref}
       className="h-auto pb-4 pt-5 !overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-slate-50 dark:bg-[#0f0017] dark:bg-gradient-to-b dark:from-black dark:to-[#0f0017] "
     >
+
+      
+      <meta name="msvalidate.01" content="F499BC814A9FBCC54996A2253A206579" />
+
+      <h1 className="sr-only">Abhishek Singh | Full Stack Developer | MERN, Next.js, Python, AWS</h1>
+
+      
       <div className="pointer-events-none relative z-50">
         <div className="max-w-7xl relative mx-auto py-10 md:py-20 px-4 w-full left-0 top-40">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium font-openSans bg-gradient-to-b from-neutral-700 via-neutral-800 to-neutral-900 dark:from-white dark:via-neutral-50 dark:to-neutral-300 bg-clip-text text-transparent flex items-center transition-all duration-300">
