@@ -23,6 +23,10 @@ export default function Home() {
   return (
     <>
     <h1 className="sr-only">Abhishek Singh | Full Stack Developer | MERN, Next.js, Python, AWS</h1>
+
+    <meta name="msvalidate.01" content="F499BC814A9FBCC54996A2253A206579" />
+
+    
       <AuroraBackgroundDemo>
         <Nav className="absolute top-0" />
         <ScrollProgress />
