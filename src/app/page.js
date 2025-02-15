@@ -22,6 +22,7 @@ export default function Home() {
  
   return (
     <>
+    <h1 className="sr-only">Abhishek Singh | Full Stack Developer | MERN, Next.js, Python, AWS</h1>
       <AuroraBackgroundDemo>
         <Nav className="absolute top-0" />
         <ScrollProgress />
