@@ -82,12 +82,14 @@ export const HeroParallax = ({ products }) => {
               className="bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-400 dark:from-purple-400 dark:via-purple-300 dark:to-indigo-200 bg-clip-text text-transparent bg-300% animate-gradient transition-all duration-300 font-serif"
             />
           </h1>
+           <h1>
           <p className="max-w-2xl font-openSans text-[0.75rem] sm:text-[0.75rem] md:leading-[2.35rem] md:text-2xl mt-6 bg-gradient-to-b from-neutral-700 via-neutral-800 to-neutral-900 dark:from-white dark:via-neutral-50 dark:to-neutral-300 bg-clip-text text-transparent  transition-all duration-300">
             You&apos;ve stumbled upon my little heaven on the web;
             <br />
       
             Welcome and feel at home!
           </p>
+           </h1>
         </div>
 
         <style jsx global>{`
